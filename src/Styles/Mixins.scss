@@ -1,0 +1,22 @@
+@use "./Variables.scss" as *;
+
+
+@mixin underline-hover($color: $secondary-header-color) {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: $color;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
