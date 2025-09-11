@@ -1,0 +1,48 @@
+@use "../../Styles/Variables.scss" as *;
+
+
+.Footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 11px;
+  width: 100%;
+  z-index: $outermost;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  
+  hr {
+    width: 18% !important;
+    border-top: 0.5px solid white !important;
+    margin-right: 0.5em !important;
+
+    @media (max-width: 780px) {
+      display: none;
+    }
+  }
+
+  .ant-tag {
+    font-size: 11px;
+  }
+
+  &__Right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-basis: 80%;
+
+    @media (max-width: 780px) {
+      margin-bottom: 1em;
+    }
+  }
+
+  @media (max-width: 780px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    font-size: 10px;
+    padding: 0.3em 1em;
+  }
+}

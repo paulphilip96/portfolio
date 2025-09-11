@@ -1,0 +1,33 @@
+@use "../../Styles/Variables.scss" as *;
+@use "../../Styles/Mixins.scss" as *;
+
+
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: $outermost;
+
+  img {
+    width: 30px;
+  }
+
+  a {
+    @include navigation-effect();
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: $secondary-header-color;
+    }
+  }
+
+  & > a {
+    margin: 0 2em;
+  }
+}

@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BACKGROUND_VIDEO_URL } from "../../Constants/Urls";
+import React, { useRef, useState } from "react";
+
+import { BACKGROUND_VIDEO_URL, NAVIGATION } from "../../Constants/General";
+import Loader from "../../Components/Loader/Loader";
 
 import "./Homepage.scss";
-import Loader from "../../Components/Loader/Loader";
+import { Link } from "react-router-dom";
 
 
 const Homepage = () => {
@@ -13,12 +15,6 @@ const Homepage = () => {
   const handleOnCanPlay = () => {
     setIsVideoLoaded(true);
   };
-
-  const navigationLinks = [
-    { path: "/experience", label: "Experience" },
-    { path: "/extras", label: "Extras" },
-    { path: "/contact", label: "Contact Me" },
-  ]
 
   return (
     <div className="Homepage">
@@ -47,9 +43,9 @@ const Homepage = () => {
         <h1>Paul Philip</h1>
         <h2>Software Engineer</h2> 
         <div className="navigation">
-          {navigationLinks.map((item) => (
+          {NAVIGATION.map((item) => (
             <React.Fragment>
-              <hr /><div>{item.label}</div><hr />
+              <hr /><Link to={item.path}>{item.label}</Link><hr />
             </React.Fragment>
           ))}
         </div>

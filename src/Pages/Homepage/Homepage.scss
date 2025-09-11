@@ -43,16 +43,17 @@
       align-items: center;
       width: 100%;
 
-      & > div {
-        @include underline-hover();
-        font-weight: 600;
-        padding: 0.25em 0;
-        color: #fff;
-        transition: color 0.3s ease;
+      & > div, & > a {
+        @include navigation-effect();
         white-space: nowrap;
+      }
 
-        &:hover {
-          color: $secondary-header-color;
+      @media (max-width: 780px) {
+        flex-direction: column;
+        margin-top: 2em;
+        
+        hr {
+          display: none;
         }
       }
     }
