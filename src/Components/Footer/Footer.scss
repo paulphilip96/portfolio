@@ -1,13 +1,15 @@
 @use "../../Styles/Variables.scss" as *;
 
-
-.Footer {
+.alt {
   position: absolute;
   bottom: 0;
   left: 0;
-  font-size: 11px;
   width: 100%;
-  z-index: $outermost;
+  z-index: $outermost !important;
+}
+
+.Footer {
+  font-size: 11px;
   font-weight: 700;
   display: flex;
   align-items: center;

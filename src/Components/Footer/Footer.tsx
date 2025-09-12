@@ -1,12 +1,16 @@
 import { Tag } from "antd";
+import { useLocation } from "react-router-dom";
 import moment from "moment";
+import classNames from "classnames";
 
 import packageJson from "../../../package.json";
 
 import "./Footer.scss";
+import { APP_ROUTES } from "../../Constants/API";
 
 
 const Footer = () => {
+  const location = useLocation();
 
   const getCurrentYear = (): number => {
     const now = moment();
@@ -14,9 +18,10 @@ const Footer = () => {
   }
 
   const appVersion = packageJson.version;
-
+  const altClassName = (location.pathname === APP_ROUTES.HOMEPAGE);
+  
   return (
-    <div className="Footer">
+    <div className={classNames("Footer", { "alt": altClassName })}>
       <Tag color="gold">{`v${appVersion}`}</Tag>
 
       <div className="Footer__Right">
