@@ -5,7 +5,7 @@ import { NAVIGATION } from "../../Constants/General";
 import LOGO from "../../Logos/LOGO_CIRCULAR.png";
 
 import "./Navbar.scss";
-import { APP_ROUTES } from "../../Constants/Routes";
+import { APP_ROUTES } from "../../Constants/API";
 
 
 const Navbar = () => {
