@@ -8,9 +8,10 @@ export const STATUS_CODES = {
 
 export const APP_ROUTES = {
   HOMEPAGE: "/",
-  EXPERIENCE: "/experience",
-  EXTRAS: "/extras",
-  CONTACT: "/contact",
+  PORTFOLIO: "/portfolio",
+  ABOUT: "/portfolio#about",
+  EXPERIENCE: "/portfolio#experience",
+  EXTRAS: "/portfolio#extras",
   TYPING_TEST: "/typing_test"
 }
 
