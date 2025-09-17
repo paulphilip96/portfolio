@@ -22,7 +22,7 @@ const Footer = () => {
   
   return (
     <div className={classNames("Footer", { "alt": altClassName })}>
-      <Tag color="gold">{`v${appVersion}`}</Tag>
+      <Tag color="yellow">{`v${appVersion}`}</Tag>
 
       <div className="Footer__Right">
         <hr />

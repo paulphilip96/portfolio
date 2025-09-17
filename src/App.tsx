@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
+import { ConfigProvider, theme } from "antd";
 
 import Homepage from "./Pages/Homepage/Homepage";
 import Footer from "./Components/Footer/Footer";
@@ -15,6 +16,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+
         <ToastContainer />
         <Navbar />
         
@@ -24,6 +27,7 @@ function App() {
         </Routes>
         
         <Footer />
+        </ConfigProvider> 
       </BrowserRouter>
     </div>
   )

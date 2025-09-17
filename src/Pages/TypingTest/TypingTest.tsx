@@ -12,6 +12,7 @@ import "./TypingTest.scss";
 
 
 const TypingTest = () => {
+  
   // Typing test states
   const [words, setWords] = useState<string[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
