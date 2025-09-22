@@ -44,7 +44,10 @@ const ContactModal = ({ show, setShow }: ContactModalI) => {
     const payload = transformContactFormData(formData);
     const response = await ContactApi.sendEmail(payload);
     if (response.statusCode !== STATUS_CODES.CREATED) toast.error("An error occured. Please try again later.");
-    else toast.success("Message sent!");
+    else{
+      toast.success("Message sent!");
+      setShow(false);
+    }
   }
 
   return (
