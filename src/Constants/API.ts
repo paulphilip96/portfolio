@@ -6,20 +6,12 @@ export const STATUS_CODES = {
   GENERIC_ERROR: -1
 }
 
-export const APP_ROUTES = {
-  HOMEPAGE: "/",
-  PORTFOLIO: "/portfolio",
-  ABOUT: "/portfolio#about",
-  EXPERIENCE: "/portfolio#experience",
-  EXTRAS: "/portfolio#extras",
-  TYPING_TEST: "/typing_test"
-}
-
 export const API_ROUTES = {
   GET_ALL_DATA: "/users",
   ADD_DATA: "/users",
   GET_RANK: "/rank",
-  SEND_EMAIL: "/message"
+  SEND_EMAIL: "/message",
+  HOLIDAYS: "/holidays"
 }
 
 export const BASE_URL = "https://paulportfoliobackend.com";

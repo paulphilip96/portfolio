@@ -7,7 +7,7 @@
   font-size: 16px;
   font-weight: 400;
   min-height: 100vh;
-  background: #242424;
+  background: $primary-background-color;
   color: #e0e0e0; 
   font-family: 'Inter', sans-serif;
   color-scheme: light dark;
@@ -15,6 +15,31 @@
   line-height: 1.5;
   z-index: 1;
   overflow: auto;
+
+  .wrapper {
+    padding: 5em 5em;
+
+     &:first-of-type {
+      padding-top: 2em;
+     }
+     
+     &:last-of-type {
+      padding-bottom: 10em;
+     }
+  }
+
+  .container {
+    padding: 1em 2em;
+    margin: 8em 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 
   a {
     transition: 0.3s;
@@ -44,8 +69,9 @@
   }
 
   h1 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 60px;
+    font-weight: 700;
     text-align: center; 
     margin: 0;
     letter-spacing: 1px; 
@@ -85,12 +111,48 @@
     }
   }
 
+  h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;       
+    font-weight: 300;      
+    text-align: center;
+    letter-spacing: 2px;    
+    line-height: 1.4;
+    margin: 0.5em 0;
+
+    @media (max-width: 780px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 20px;
+    }
+  }
+
+  h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 100px;       
+    font-weight: 600;      
+    text-align: center;
+    letter-spacing: 2px;    
+    line-height: 1.4;
+    margin: 0.5em 0;
+
+    @media (max-width: 780px) {
+      font-size: 70px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 50px;
+    }
+  }
+
   @media (max-width: 780px) {
     font-size: 14px;
   }
 
   @media (max-width: 500px) {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   @media (max-height: 500px) {
