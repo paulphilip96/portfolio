@@ -26,6 +26,10 @@
      &:last-of-type {
       padding-bottom: 10em;
      }
+
+     @media (max-width: 780px) {
+      padding: 5em 2em;
+     }
   }
 
   .container {

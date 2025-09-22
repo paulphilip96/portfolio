@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button} from "antd";
+import { HashLink } from "react-router-hash-link";
+import { useMediaQuery } from "react-responsive";
 
 import { EXPERIENCE, EXTRAS, STATS, TECH_STACK_LOGOS } from "./Constants/projects";
 import { APP_ROUTE_IDS, APP_ROUTES } from "../../Constants/General";
 import { chunkArray } from "../../Helpers/UtilityHelpers";
+import type { Experience } from "../../Types/PortfolioTypes";
 import FastCarousel from "./Components/FastCarousel/FastCarousel";
 import Stats from "./Components/Stats/Stats";
 import RegCarousel from "./Components/RegCarousel/RegCarousel";
@@ -12,14 +15,32 @@ import ContactModal from "../../Components/ContactModal/ContactModal";
 import HEADSHOT from "./Images/About/PROFILE_PIC.jpeg";
 
 import "./Portfolio.scss";
-import { HashLink } from "react-router-hash-link";
 
 
 const Portfolio = () => {
   
-  const [showContactModal, setShowContactModal] = useState<boolean>(false);
+  const isAltTablet = useMediaQuery({ maxWidth: 1000 });
+  const isMobile = useMediaQuery({ maxWidth: 600 });
 
-  const slides = chunkArray(EXPERIENCE, 3)
+  const [showContactModal, setShowContactModal] = useState<boolean>(false);
+  const [slides, setSlides] = useState<Experience[][]>([[]]);
+  const [carouselSpeed, setCarouselSpeed] = useState<number>(3000);
+
+  useEffect(() => {
+    let parts: number = 3;
+
+    if (isAltTablet && !isMobile) {
+      parts = 2;
+      setCarouselSpeed(2000)
+    }
+    else if (isMobile) {
+      parts = 1;
+      setCarouselSpeed(1350)
+    }
+
+    const formattedSlides = chunkArray(EXPERIENCE, parts);
+    setSlides(formattedSlides);
+  }, [isAltTablet, isMobile]);
 
   return (
     <React.Fragment>
@@ -46,7 +67,7 @@ const Portfolio = () => {
         <div className="Portfolio__Experience wrapper" id={APP_ROUTE_IDS.EXPERIENCE}>
           <div className="Portfolio__Experience__Carousel container">
             <h1>Projects & Roles</h1>
-            <RegCarousel data={slides} />
+            <RegCarousel data={slides} speed={carouselSpeed} />
           </div>
 
           <div className="Portfolio__Experience__TechStack container">
@@ -55,7 +76,7 @@ const Portfolio = () => {
           </div>
         </div>
 
-        <div className="Portfolio__Stats">
+        <div className="Portfolio__Stats wrapper">
           {STATS.map((stat) => (
             <Stats data={stat} />
           ))}

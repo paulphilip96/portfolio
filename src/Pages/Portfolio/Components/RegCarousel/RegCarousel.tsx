@@ -6,13 +6,19 @@ import "./RegCarousel.scss";
 
 
 interface RegCarouselI {
-  data: Experience[][]
+  data: Experience[][],
+  speed: number
 }
 
-const RegCarousel = ({ data }: RegCarouselI) => {
+const RegCarousel = ({ data, speed }: RegCarouselI) => {
   return (
     <div className="RegCarousel">
-      <Carousel autoplay effect="scrollx" arrows>
+      <Carousel 
+        autoplaySpeed={speed}
+        autoplay 
+        effect="scrollx" 
+        arrows
+      >
         {data.map((group, i) => (
           <div className="carousel-slide" key={`carousel-slide-${i}`}>
             {group.map((item, j) => (

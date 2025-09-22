@@ -4,6 +4,10 @@
     justify-content: center;
     gap: 20px !important;
     align-items: space-evenly !important;
+
+    @media (max-width: 1000px) {
+      gap: 10px;
+    }
   }
 
   .carousel-block {
@@ -18,11 +22,18 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 0.5em;
+      min-height: 40px;
+      height: 40px;
 
       .ant-tag {
         margin-left: 1em;
         display: flex;
         align-items: center;
+      }
+
+      @media (max-width: 1000px) {
+        min-height: 60px;
+        height: 60px;
       }
     }
 
@@ -32,6 +43,14 @@
       object-fit: contain;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    @media (max-width: 1000px) {
+      flex: 0 0 40%;
+    }
+
+    @media (max-width: 600px) {
+      flex: 0 0 80%;
     }
   }
 }

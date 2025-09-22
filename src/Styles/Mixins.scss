@@ -13,18 +13,6 @@
   }
 }
 
-@mixin alt-padding {
-  padding: 5em 0em 0em 0em;
-
-  @media (max-width: 780px) {
-    padding: 5em 0em 0em 0em;
-  }
-
-  @media (max-width: 500px) {
-    padding: 5em 0em 0em 0em;
-  }
-}
-
 @mixin navigation-effect($color: $secondary-header-color) {
   cursor: pointer;
   position: relative;
