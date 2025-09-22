@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { useMediaQuery } from "react-responsive";
 
-import { NAVIGATION } from "../../Constants/General";
-import LOGO from "../../Logos/LOGO_CIRCULAR.png";
-import { APP_ROUTES } from "../../Constants/API";
+import { APP_ROUTES, NAVIGATION } from "../../Constants/General";
 import ContactModal from "../ContactModal/ContactModal";
 
 import "./Navbar.scss";
@@ -13,6 +12,8 @@ import "./Navbar.scss";
 const Navbar = () => {
   
   const location = useLocation();
+  const isTablet = useMediaQuery({ maxWidth: 780 });
+  const { HOMEPAGE } = APP_ROUTES;
 
   const [show, setShow] = useState<boolean>(true);
   const [openContactModal, setOpenContactModal] = useState<boolean>(false);
@@ -20,17 +21,20 @@ const Navbar = () => {
   useEffect(() => {
     const currentPath = location.pathname;
     (currentPath === HOMEPAGE) ? setShow(false) : setShow(true)
-  }, []);
+  }, [location.pathname]);
 
-  const { HOMEPAGE } = APP_ROUTES;
+  const filteredNavigation = isTablet
+    ? (NAVIGATION
+      .filter((item) => !item.path.startsWith(APP_ROUTES.PORTFOLIO))
+      .concat({ path: APP_ROUTES.PORTFOLIO, label: "Portfolio" })
+    )
+    : NAVIGATION
 
   return (
     <React.Fragment>
       {show && (
         <div className="Navbar">
-          <Link to={HOMEPAGE}><img src={LOGO} alt="Logo"/></Link>
-
-          {NAVIGATION.map((item) => (
+          {filteredNavigation.map((item) => (
             <HashLink smooth to={item.path}>{item.label}</HashLink>
           ))}
           <div onClick={() => setOpenContactModal(true)}>Contact Me</div>

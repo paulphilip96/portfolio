@@ -1,0 +1,28 @@
+@use "../../Styles/Mixins.scss" as *;
+
+
+.Holiday {
+  @include default-padding; 
+  min-height: 80vh;
+
+  .label {
+    margin-top: 0.5em;
+    opacity: 0.7;
+  }
+
+  &__Map {
+
+    .worldmap__figure-container {
+      background: transparent !important; 
+    }
+
+    .worldmap__figure-caption {
+      display: none;
+    }
+
+    path {
+      stroke: white !important;
+      stroke-width: 2.5 !important;
+    }
+  }
+}

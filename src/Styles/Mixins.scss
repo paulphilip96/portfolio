@@ -2,7 +2,7 @@
 
 
 @mixin default-padding {
-  padding: 5em 5em 3em 5em;
+  padding: 5em 5em 10em 5em;
 
   @media (max-width: 780px) {
     padding: 5em 3em 4em 3em;
@@ -10,6 +10,18 @@
 
   @media (max-width: 500px) {
     padding: 5em 2em 5em 2em;
+  }
+}
+
+@mixin alt-padding {
+  padding: 5em 0em 0em 0em;
+
+  @media (max-width: 780px) {
+    padding: 5em 0em 0em 0em;
+  }
+
+  @media (max-width: 500px) {
+    padding: 5em 0em 0em 0em;
   }
 }
 

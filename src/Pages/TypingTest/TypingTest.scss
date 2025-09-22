@@ -9,11 +9,6 @@
   align-items: center;
   min-height: 96vh;
 
-  .alt-header {
-    width: 100%;
-    text-align: left !important;
-  }
-
   &__PreTestBlock, &__RandomWords {
     margin-top: 2em;
   }
@@ -58,6 +53,11 @@
       justify-content: space-between;
       align-items: center;
       margin: 2em 0;
+
+      .result {
+        font-weight: 600;
+        opacity: 0.7;
+      }
 
       .ant-btn {
         width: 200px;

@@ -113,14 +113,14 @@ const TypingTest = () => {
   return (
     <div className="TypingTest">
       {/* High Scores Table */}
-      <h2 className="alt-header">High Scores</h2>
+      <h1>High Scores</h1>
       <HighScoresTable dataSource={dataSource} loading={loading} />
 
       {/* Typing Test */}
       {!started ? (
         <div className="TypingTest__PreTestBlock">
           <h2>Test Yourself</h2>
-          <Button variant="outlined" color="gold" onClick={startTest}>Start Test</Button>
+          <Button variant="outlined" color="cyan" onClick={startTest}>Start Test</Button>
         </div>
       ) : (
         <React.Fragment>
@@ -142,8 +142,8 @@ const TypingTest = () => {
           ) : (
             <div className="TypingTest__CompletedBlock">
               <div className="TypingTest__CompletedBlock__Wrapper">
-                <div>Test complete! WPM: {calculateWPM()} | Accuracy: {calculateAccuracy()}%</div>
-                <Button variant="outlined" color="gold" onClick={startTest}>Restart Test</Button>
+                <div className="result">Test complete! WPM: {calculateWPM()} | Accuracy: {calculateAccuracy()}%</div>
+                <Button variant="outlined" color="cyan" onClick={startTest}>Restart Test</Button>
               </div>
               <div className="TypingTest__CompletedBlock__Wrapper">
                 <Input 
@@ -151,7 +151,7 @@ const TypingTest = () => {
                   value={userName} 
                   onChange={handleUserNameChange}
                 />
-                <Button variant="solid" color="gold" onClick={onSaveClick}>Save High Score</Button>
+                <Button variant="solid" color="cyan" onClick={onSaveClick}>Save High Score</Button>
               </div>
             </div>
           )}

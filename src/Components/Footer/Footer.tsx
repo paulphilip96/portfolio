@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import moment from "moment";
 import classNames from "classnames";
 
+import { APP_ROUTES } from "../../Constants/General";
 import packageJson from "../../../package.json";
 
 import "./Footer.scss";
-import { APP_ROUTES } from "../../Constants/API";
 
 
 const Footer = () => {
@@ -18,11 +18,11 @@ const Footer = () => {
   }
 
   const appVersion = packageJson.version;
-  const altClassName = (location.pathname === APP_ROUTES.HOMEPAGE);
+  const altClassName = (location.pathname === APP_ROUTES.HOMEPAGE) || (location.pathname === APP_ROUTES.PORTFOLIO);
   
   return (
     <div className={classNames("Footer", { "alt": altClassName })}>
-      <Tag color="yellow">{`v${appVersion}`}</Tag>
+      <Tag color="cyan">{`v${appVersion}`}</Tag>
 
       <div className="Footer__Right">
         <hr />

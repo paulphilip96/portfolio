@@ -1,5 +1,5 @@
 import { useState, type SetStateAction } from "react";
-import { Input, Modal } from "antd";
+import { Button, Input, Modal } from "antd";
 
 import type { ContactFormData } from "../../Types/ContactTypes";
 
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import ContactApi from "../../API/ContactApi";
 import { transformContactFormData } from "../../Helpers/ContactHelpers";
 import { STATUS_CODES } from "../../Constants/API";
+import React from "react";
 
 
 interface ContactModalI {
@@ -50,10 +51,30 @@ const ContactModal = ({ show, setShow }: ContactModalI) => {
     <Modal
       title="Contact Me"
       open={show}
-      okText={"Submit"}
       onOk={handleSubmit}
       onCancel={() => setShow(false)}
-    >
+        footer={[
+          <React.Fragment>
+             <Button 
+                key="cancel" 
+                onClick={() => setShow(false)}
+                variant="outlined"
+                color="cyan"
+              >
+              Cancel
+            </Button>
+            <Button
+              key="confirm"
+              type="primary"
+              variant="solid"
+              color="cyan"
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          </React.Fragment>
+        ]}
+      >
       <div className="ContactModal">
         <Input
           name="name"
