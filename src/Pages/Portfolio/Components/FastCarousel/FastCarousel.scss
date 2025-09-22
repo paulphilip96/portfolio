@@ -1,6 +1,14 @@
 .FastCarousel {
   span {
     margin: 0 5em;
+
+    @media (max-width: 1000px) {
+      margin: 0 2em;
+    }
+
+    @media (max-width: 600px) {
+      margin: 0 0.5em;
+    }
   }
 
   img {

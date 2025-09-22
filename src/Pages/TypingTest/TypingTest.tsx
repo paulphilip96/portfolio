@@ -113,7 +113,7 @@ const TypingTest = () => {
   return (
     <div className="TypingTest">
       {/* High Scores Table */}
-      <h1>High Scores</h1>
+      <h2>High Scores</h2>
       <HighScoresTable dataSource={dataSource} loading={loading} />
 
       {/* Typing Test */}

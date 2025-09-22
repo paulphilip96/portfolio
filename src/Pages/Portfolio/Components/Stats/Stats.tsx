@@ -18,9 +18,9 @@ const Stats = ({ data }: StatsI) => {
 
   return (
     <div className="Stats" ref={ref}>
-      <h4>
+      <h3>
         {inView ? <CountUp end={data.value} duration={data.duration} /> : "0"}+
-      </h4>
+      </h3>
       <div>{data.label}</div>
     </div>
   )

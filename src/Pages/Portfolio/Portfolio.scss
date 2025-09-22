@@ -2,24 +2,33 @@
 @use "../../Styles/Variables.scss" as *;
 
 .Portfolio {
-  @include alt-padding;
-
-  .wrapper {
-    scroll-margin-top: 5em;
-  }
-
   &__About {
+    color: black;
+    padding-top: 5em !important;
     display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a, #ffd700, #1a1a1a);
+    border-bottom: 4px solid gold;
 
     &__Intro {
       display: flex;
       align-items: center;
 
       h1 {
+        text-shadow: none;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: unset !important;
+        background-clip: unset !important;
         margin-left: 1em !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.4) !important;
+
+        @media (max-width: 780px) {
+          margin-left: 0 !important;
+          margin-bottom: 0.5em !important;
+        }
       }
 
       .image-wrapper {
@@ -30,14 +39,18 @@
           height: 200px;
           object-fit: cover;
           border-radius: 50%;
-          border: 4px solid $primary-header-color;
+          border: 4px solid black;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 
-          @media (min-width: 768px) {
+          @media (min-width: 780px) {
             width: 260px;
             height: 260px;
           }
         }
+      }
+
+      @media (max-width: 780px) {
+        flex-direction: column-reverse;
       }
     }
     
@@ -60,6 +73,10 @@
 
     h1 {
       margin-bottom: 0.5em !important;
+      
+      @media (max-width: 1000px) {
+        margin-bottom: 1em !important;
+      }
     }
   }
 
@@ -72,6 +89,15 @@
     gap: 4em;
     text-align: center;
     min-height: 500px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 2em;
+    }
+  }
+
+  #extras {
+    scroll-margin-top: 0em !important;
   }
 
   &__Extras {
@@ -88,6 +114,16 @@
 
       h3 {
         text-align: left !important;
+
+        @media (max-width: 1000px) {
+          text-align: center !important;
+        }
+      }
+
+      @media (max-width: 1000px) {
+        margin-top: 2em;
+        flex-basis: 100%;
+        align-items: center;
       }
     }
 
@@ -99,7 +135,21 @@
 
       h1 {
         margin-bottom: 0.2em !important;
+
+        @media (max-width: 1000px) {
+          margin-bottom: 1em !important;
+        }
       }
+
+      @media (max-width: 1000px) {
+        flex-basis: 100%;
+        width: 100%;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      flex-direction: column-reverse;
     }
   }
 }
